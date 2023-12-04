@@ -1,3 +1,26 @@
+"""
+***************************************************************
+* Name: DFIR DSA Unit Tests
+* Author: Andrew May
+* Created: 11/23/2023
+* Course: CIS 152 - Data Structures
+* Version: 1.0.0
+* OS: macOS Ventura 13.4
+* IDE: VSCode - Version: 1.83.1 (Universal)
+* Copyright: This is my own original work
+* based on specifications issued by our instructor
+* Description: This program performs 10 unit tests on the two
+* data structure classes (Stack, HashTable), and insertion sort
+* method contained with the main DFIR.py file.
+* Input: N/A
+* Output: N/A
+* Academic Honesty: I attest that this is my original work.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.
+***************************************************************
+"""
+
 from DFIR import *
 import unittest
 
