@@ -134,20 +134,15 @@ class HashTable:
 
     def get_value(self, key):
         """
-            Return searched value with specific key.
+            Retrieves value associated with given key from HashTable.
         """
         hashed_key = hash(key) % self.size
         container = self.hash_table[hashed_key]
-        found_key = False
-        for index, record in enumerate(container):
+        for record in container:
             record_key, record_value = record
             if record_key == key:
-                found_key = True
-                break
-            if found_key:
                 return record_value
-            else:
-                return "No record found"
+        return "No record found"
         
     def insertion_sort(self):
         """
