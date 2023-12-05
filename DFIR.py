@@ -30,8 +30,10 @@ from tkinter import ttk
 from tkinter import scrolledtext
 import datetime
 
-# If you need to change GUI widget colors for any reason, please do so right here!
-# All visible components are controlled by (at least) one of these four color variables.
+"""
+    If you need to change GUI widget colors for any reason, please do so right here!
+    All visible components are controlled by (at least) one of these four color variables.
+"""
 button_color = "black"
 bg_color = "#3F3F42"
 font_color = "white"
