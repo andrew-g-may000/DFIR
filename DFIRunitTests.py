@@ -24,6 +24,7 @@
 from DFIR import *
 import unittest
 
+
 # Unit tests for Stack data structure
 class StackTests(unittest.TestCase):
     def test_push(self):
@@ -73,30 +74,37 @@ class StackTests(unittest.TestCase):
         stack_string = stack.print_stack_up()
         self.assertEqual(stack_string, "a\nb\nc\n")
 
+
 # Unit tests for HashTable data structure
 class HashTableTests(unittest.TestCase):
     hash_table = HashTable()
-    hash_table.set_value("apple", "3")
-    hash_table.set_value("banana", "6")
-    hash_table.set_value("cherry", "9")
+    hash_table.set_value(3, "apple")
+    hash_table.set_value(9, "cherry")
+    hash_table.set_value(6, "banana")
 
     def test_set_value(self):
-        self.hash_table2 = HashTable()
-        self.hash_table2.set_value("date", 12)
-        self.assertIn("date", self.hash_table2.print_hash_table())
+        self.assertEqual(self.hash_table.get_value(3), "apple")
+        self.assertEqual(self.hash_table.get_value(9), "cherry")
+        self.assertEqual(self.hash_table.get_value(6), "banana")
 
     def test_get_value(self):
-        self.assertEqual(self.hash_table.get_value("mango"), "No record found")
-        self.assertEqual(self.hash_table.get_value("grape"), "No record found")
-
-    def test_insertion_sort(self):
-        self.hash_table.insertion_sort()
-        self.assertEqual(self.hash_table.print_hash_table(), "apple: 3\nbanana: 6\ncherry: 9")
+        self.assertEqual(self.hash_table.get_value(3), "apple")
+        self.assertEqual(self.hash_table.get_value(6), "banana")
+        self.assertEqual(self.hash_table.get_value(13), "No record found")
+        self.assertEqual(self.hash_table.get_value(15), "No record found")
 
     def test_print_hash_table(self):
-        self.assertEqual(self.hash_table.print_hash_table(), "apple: 3\nbanana: 6\ncherry: 9")
+        self.assertEqual(self.hash_table.print_hash_table(), "3: apple\n9: cherry\n6: banana")
+
+    def test_insertion_sort(self):
+        sort_this_table = HashTable()
+        sort_this_table.set_value(1, "Ace")
+        sort_this_table.set_value(3, "Queen")
+        sort_this_table.set_value(2, "King")
+        sort_this_table.set_value(4, "Jack")
+        sort_this_table.insertion_sort()
+        self.assertEqual(sort_this_table.print_hash_table(), "1: Ace\n2: King\n3: Queen\n4: Jack")
 
 
 if __name__ == "main":
     unittest.main()
-
