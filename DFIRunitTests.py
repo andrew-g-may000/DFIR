@@ -27,6 +27,7 @@ import unittest
 
 # Unit tests for Stack data structure
 class StackTests(unittest.TestCase):
+    # Testing the Stack class' push method
     def test_push(self):
         stack = Stack()
         stack.push(1)
@@ -34,6 +35,7 @@ class StackTests(unittest.TestCase):
         stack.push(3)
         self.assertEqual(stack.size(), 3)
 
+    # Testing the Stack class' pop method
     def test_pop(self):
         stack = Stack()
         stack.push(1)
@@ -43,12 +45,14 @@ class StackTests(unittest.TestCase):
         self.assertEqual(item, 3)
         self.assertEqual(stack.size(), 2)
 
+    # Testing the Stack class' is_empty method
     def test_is_empty(self):
         stack = Stack()
         self.assertTrue(stack.is_empty())
         stack.push(1)
         self.assertFalse(stack.is_empty())
 
+    # Testing the Stack class' size method
     def test_size(self):
         stack = Stack()
         self.assertEqual(stack.size(), 0)
@@ -57,6 +61,7 @@ class StackTests(unittest.TestCase):
         stack.push(3)
         self.assertEqual(stack.size(), 3)
 
+    # Testing the Stack class' top method
     def test_top(self):
         stack = Stack()
         stack.push(1)
@@ -66,6 +71,7 @@ class StackTests(unittest.TestCase):
         self.assertEqual(top, 3)
         self.assertEqual(stack.size(), 3)
 
+    # Testing the Stack class' print_stack_up method
     def test_print_stack_up(self):
         stack = Stack()
         stack.push("a")
@@ -77,33 +83,39 @@ class StackTests(unittest.TestCase):
 
 # Unit tests for HashTable data structure
 class HashTableTests(unittest.TestCase):
-    hash_table = HashTable()
-    hash_table.set_value(3, "apple")
-    hash_table.set_value(9, "cherry")
-    hash_table.set_value(6, "banana")
 
+    # Testing the HashTable class' set_value method
     def test_set_value(self):
-        self.assertEqual(self.hash_table.get_value(3), "apple")
-        self.assertEqual(self.hash_table.get_value(9), "cherry")
-        self.assertEqual(self.hash_table.get_value(6), "banana")
-
+        hash_table = HashTable()
+        hash_table.set_value(3, "apple")
+        self.assertEqual(hash_table.get_value(3), "apple")
+        
+    # Testing the HashTable class' get_value method
     def test_get_value(self):
-        self.assertEqual(self.hash_table.get_value(3), "apple")
-        self.assertEqual(self.hash_table.get_value(6), "banana")
-        self.assertEqual(self.hash_table.get_value(13), "No record found")
-        self.assertEqual(self.hash_table.get_value(15), "No record found")
+        hash_table = HashTable()
+        hash_table.set_value(3, "apple")
+        hash_table.set_value(6, "banana")
+        self.assertEqual(hash_table.get_value(3), "apple")
+        self.assertEqual(hash_table.get_value(6), "banana")
+        self.assertEqual(hash_table.get_value(13), "No record found")
+        self.assertEqual(hash_table.get_value(15), "No record found")
 
+    # Testing the HashTable class' print_hash_table method
     def test_print_hash_table(self):
-        self.assertEqual(self.hash_table.print_hash_table(), "3: apple\n9: cherry\n6: banana")
+        hash_table = HashTable()
+        hash_table.set_value(3, "apple")
+        hash_table.set_value(9, "cherry")
+        hash_table.set_value(6, "banana")
+        self.assertEqual(hash_table.print_hash_table(), "3: apple\n9: cherry\n6: banana")
 
+    # Testing the HashTable class' insertion_sort method
     def test_insertion_sort(self):
-        sort_this_table = HashTable()
-        sort_this_table.set_value(1, "Ace")
-        sort_this_table.set_value(3, "Queen")
-        sort_this_table.set_value(2, "King")
-        sort_this_table.set_value(4, "Jack")
-        sort_this_table.insertion_sort()
-        self.assertEqual(sort_this_table.print_hash_table(), "1: Ace\n2: King\n3: Queen\n4: Jack")
+        hash_table = HashTable()
+        hash_table.set_value(3, "apple")
+        hash_table.set_value(9, "cherry")
+        hash_table.set_value(6, "banana")
+        hash_table.insertion_sort()
+        self.assertEqual(hash_table.print_hash_table(), "3: apple\n6: banana\n9: cherry")
 
 
 if __name__ == "main":
